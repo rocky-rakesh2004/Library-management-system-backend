@@ -1,98 +1,282 @@
+<h1 align="center">📚 Library Management System Backend</h1>
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <b>REST API built with NestJS, PostgreSQL, TypeORM, and JWT Authentication</b>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+<p align="center">
+  <img src="https://img.shields.io/badge/NestJS-Backend-red?style=for-the-badge&logo=nestjs"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-Database-blue?style=for-the-badge&logo=postgresql"/>
+  <img src="https://img.shields.io/badge/TypeORM-ORM-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/JWT-Authentication-green?style=for-the-badge&logo=jsonwebtokens"/>
+  <img src="https://img.shields.io/badge/Swagger-API Docs-brightgreen?style=for-the-badge&logo=swagger"/>
+  <img src="https://img.shields.io/badge/Postman-Testing-orange?style=for-the-badge&logo=postman"/>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<p align="center">
+  <img src="https://img.shields.io/github/stars/rocky-rakesh2004/Library-management-system-backend?style=social"/>
+  <img src="https://img.shields.io/github/forks/rocky-rakesh2004/Library-management-system-backend?style=social"/>
+  <img src="https://img.shields.io/github/issues/rocky-rakesh2004/Library-management-system-backend?style=social"/>
+  <img src="https://img.shields.io/github/repo-size/rocky-rakesh2004/Library-management-system-backend"/>
+  <img src="https://img.shields.io/github/last-commit/rocky-rakesh2004/Library-management-system-backend"/>
+</p>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## 📖 Overview
 
-```bash
-$ npm install
+A **Library Book Management System API** built using **NestJS, PostgreSQL, and TypeORM** with **JWT Authentication and Role-Based Access Control (Admin & User)**.
+
+This project demonstrates:
+
+* 🔐 Secure Authentication
+* 👨‍💼 Admin & 👤 User Roles
+* 📚 Book CRUD Operations
+* 📡 Swagger API Documentation
+* 🧪 Postman Testing
+* ⚙️ Config Module & Environment Variables
+* 🧱 Clean Backend Architecture
+
+---
+
+## 🚀 Features
+
+### 🔐 Authentication
+
+| Feature       | Description           |
+| ------------- | --------------------- |
+| Register      | User account creation |
+| Login         | JWT authentication    |
+| Logout        | Secure logout         |
+| Default Admin | Pre-created admin     |
+| Guards        | Protected routes      |
+| JWT           | Token-based security  |
+
+---
+
+### 👨‍💼 Admin Features
+
+| Feature         | Access |
+| --------------- | ------ |
+| Create Books    | ✅      |
+| Update Books    | ✅      |
+| Delete Books    | ✅      |
+| View All Books  | ✅      |
+| View Book by ID | ✅      |
+| View All Users  | ✅      |
+| Delete Users    | ✅      |
+
+---
+
+### 👤 User Features
+
+| Feature         | Access |
+| --------------- | ------ |
+| Register        | ✅      |
+| Login           | ✅      |
+| View Books      | ✅      |
+| View Book by ID | ✅      |
+| Logout          | ✅      |
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology        | Usage              |
+| ----------------- | ------------------ |
+| NestJS            | Backend Framework  |
+| PostgreSQL        | Database           |
+| TypeORM           | ORM                |
+| JWT               | Authentication     |
+| Swagger           | API Documentation  |
+| Class Validator   | DTO Validation     |
+| Guards            | Authorization      |
+| Middleware        | Request Handling   |
+| Interceptors      | Response Control   |
+| Exception Filters | Error Handling     |
+| Postman           | API Testing        |
+| Config Module     | Environment Config |
+
+---
+
+## 📁 Project Structure
+
+```
+src
+│
+├── auth
+├── users
+├── books
+├── common
+│   ├── guards
+│   ├── decorators
+│   ├── interceptors
+│   ├── filters
+│   ├── middleware
+│
+├── config
+├── app.module.ts
+└── main.ts
 ```
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## 🔑 Default Admin Login
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```
+Email: admin@library.com
+Password: admin123
 ```
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ npm run test
+## 📡 API Endpoints
 
-# e2e tests
-$ npm run test:e2e
+### 🔐 Auth
 
-# test coverage
-$ npm run test:cov
+```
+POST /auth/register
+POST /auth/login
+POST /auth/logout
 ```
 
-## Deployment
+### 📚 Admin Books
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+```
+POST   /admin/books
+GET    /admin/books
+GET    /admin/books/:id
+PATCH  /admin/books/:id
+DELETE /admin/books/:id
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 👥 Users
 
-## Resources
+```
+GET    /users
+GET    /users/:id
+DELETE /users/admin/:id
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 📖 Public Books
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```
+GET /books
+GET /books/:id
+```
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📖 Swagger Documentation
 
-## Stay in touch
+```
+http://localhost:3000/api
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Test all APIs directly in browser.
 
-## License
+---
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📮 Postman Testing
+
+1. Login as Admin
+2. Copy JWT Token
+3. Add Bearer Token in Authorization
+4. Test APIs
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/rocky-rakesh2004/Library-management-system-backend.git
+```
+
+### 2️⃣ Go to Project
+
+```bash
+cd Library-management-system-backend
+```
+
+### 3️⃣ Install Dependencies
+
+```bash
+npm install
+```
+
+### 4️⃣ Setup PostgreSQL
+
+Create database:
+
+```
+library_db
+```
+
+### 5️⃣ Create .env file
+
+```
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=yourpassword
+DB_NAME=library_db
+
+JWT_SECRET=librarysecret
+JWT_EXPIRES_IN=1d
+
+PORT=3000
+```
+
+### 6️⃣ Run Project
+
+```bash
+npm run start:dev
+```
+
+---
+
+## 🧪 Run API
+
+| Service | URL                       |
+| ------- | ------------------------- |
+| Server  | http://localhost:3000     |
+| Swagger | http://localhost:3000/api |
+
+---
+
+## 🎯 Project Purpose
+
+* Learn NestJS architecture
+* Understand JWT authentication
+* Implement role-based authorization
+* Work with PostgreSQL and TypeORM
+* Build real-world backend APIs
+* Prepare for backend developer roles
+
+---
+
+## 👨‍💻 Author
+
+**RAKESH**
+
+GitHub:
+https://github.com/rocky-rakesh2004
+
+---
+
+## ⭐ Support
+
+If you like this project:
+
+⭐ Star the repository
+🍴 Fork it
+🛠️ Contribute
+📩 Share feedback
+
+---
+
+<p align="center">
+  Made with ❤️ using NestJS
+</p>
