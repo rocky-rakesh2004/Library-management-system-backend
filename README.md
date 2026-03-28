@@ -180,7 +180,7 @@ Test all APIs directly in browser.
 ## 📮 Postman API Collection
 
 <p align="center">
-  <a href="https://your-postman-link">
+  <a href="https://rakesh-s-85506702-1575679.postman.co/workspace/Rakesh-S's-Workspace~5f001d6a-ea45-40a0-87da-814ff9206896/collection/53260583-0d0c2ba8-292a-4ab0-80c3-90be1d5d13cb?action=share&creator=53260583">
     <img src="https://img.shields.io/badge/Open-Postman Collection-orange?style=for-the-badge&logo=postman"/>
   </a>
 </p>
