@@ -177,7 +177,16 @@ Test all APIs directly in browser.
 
 ---
 
-## 📮 Postman Testing
+## 📮 Postman API Collection
+
+<p align="center">
+  <a href="https://your-postman-link">
+    <img src="https://img.shields.io/badge/Open-Postman Collection-orange?style=for-the-badge&logo=postman"/>
+  </a>
+</p>
+
+Use the Postman collection to test all API endpoints easily.
+
 
 1. Login as Admin
 2. Copy JWT Token
