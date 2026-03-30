@@ -11,6 +11,8 @@
   <img src="https://img.shields.io/badge/JWT-Authentication-green?style=for-the-badge&logo=jsonwebtokens"/>
   <img src="https://img.shields.io/badge/Swagger-API Docs-brightgreen?style=for-the-badge&logo=swagger"/>
   <img src="https://img.shields.io/badge/Postman-Testing-orange?style=for-the-badge&logo=postman"/>
+  <img src="https://img.shields.io/badge/Token-Blacklist-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Scheduler-Cron-blue?style=for-the-badge"/>
 </p>
 
 <p align="center">
@@ -25,7 +27,7 @@
 
 ## 📖 Overview
 
-A **Library Book Management System API** built using **NestJS, PostgreSQL, and TypeORM** with **JWT Authentication and Role-Based Access Control (Admin & User)**.
+A **Library Book Management System API** built using **NestJS, PostgreSQL, and TypeORM** with **JWT Authentication, Token Blacklist, Logout-All Sessions, and Role-Based Access Control (Admin & User)**.
 
 This project demonstrates:
 
@@ -38,45 +40,47 @@ This project demonstrates:
 * 🧱 Clean Backend Architecture
 
 ---
-
 ## 🚀 Features
 
-### 🔐 Authentication
+### 🔐 Authentication & Security
 
-| Feature       | Description           |
-| ------------- | --------------------- |
-| Register      | User account creation |
-| Login         | JWT authentication    |
-| Logout        | Secure logout         |
-| Default Admin | Pre-created admin     |
-| Guards        | Protected routes      |
-| JWT           | Token-based security  |
-
----
-
-### 👨‍💼 Admin Features
-
-| Feature         | Access |
-| --------------- | ------ |
-| Create Books    | ✅      |
-| Update Books    | ✅      |
-| Delete Books    | ✅      |
-| View All Books  | ✅      |
-| View Book by ID | ✅      |
-| View All Users  | ✅      |
-| Delete Users    | ✅      |
+| Feature | Description |
+|--------|------------|
+| Register | User account creation |
+| Login | JWT authentication |
+| Logout | Blacklist current token |
+| Logout All | Logout from all devices |
+| Token Blacklist | Stores logged out JWT tokens |
+| Scheduler | Removes expired tokens daily |
+| Default Admin | Pre-created admin account |
+| Guards | Protected routes |
+| JWT | Token-based security |
 
 ---
 
-### 👤 User Features
+### 📚 Book Management
 
-| Feature         | Access |
-| --------------- | ------ |
-| Register        | ✅      |
-| Login           | ✅      |
-| View Books      | ✅      |
-| View Book by ID | ✅      |
-| Logout          | ✅      |
+| Feature | Admin | User |
+|--------|------|------|
+| View All Books | ✅ | ✅ |
+| View Book by ID | ✅ | ✅ |
+| Create Books | ✅ | ❌ |
+| Update Books | ✅ | ❌ |
+| Delete Books | ✅ | ❌ |
+
+---
+
+### 👥 User Management
+
+| Feature | Admin | User |
+|--------|------|------|
+| Register | ❌ | ✅ |
+| Login | ✅ | ✅ |
+| View All Users | ✅ | ❌ |
+| Delete Users | ✅ | ❌ |
+| Delete Admin | ❌ | ❌ |
+| Logout | ✅ | ✅ |
+| Logout-all | ✅ | ✅ |
 
 ---
 
@@ -97,6 +101,7 @@ This project demonstrates:
 | Postman           | API Testing        |
 | Config Module     | Environment Config |
 
+
 ---
 
 ## 📁 Project Structure
@@ -107,6 +112,7 @@ src
 ├── auth
 ├── users
 ├── books
+├── blacklist
 ├── common
 │   ├── guards
 │   ├── decorators
@@ -132,37 +138,29 @@ Password: admin123
 
 ## 📡 API Endpoints
 
-### 🔐 Auth
+#### 🔐Auth
 
 ```
 POST /auth/register
 POST /auth/login
 POST /auth/logout
+POST /auth/logout-all
 ```
-
-### 📚 Admin Books
-
+#### 👨🏻‍💻ADMIN
 ```
 POST   /admin/books
 GET    /admin/books
 GET    /admin/books/:id
 PATCH  /admin/books/:id
 DELETE /admin/books/:id
-```
-
-### 👥 Users
-
-```
 GET    /users
 GET    /users/:id
 DELETE /users/admin/:id
 ```
-
-### 📖 Public Books
-
+#### 👤USERS
 ```
-GET /books
-GET /books/:id
+GET    /users/books
+GET    /users/books/:id
 ```
 
 ---
