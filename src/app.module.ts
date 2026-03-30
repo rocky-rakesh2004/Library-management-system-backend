@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
+import { ScheduleModule } from '@nestjs/schedule';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { BooksModule } from './books/books.module';
+import { BlacklistModule } from './blacklist/blacklist.module';
 
 @Module({
   imports: [
@@ -23,10 +24,11 @@ import { BooksModule } from './books/books.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-
+    ScheduleModule.forRoot(),
     UsersModule,
     AuthModule,
     BooksModule,
+    BlacklistModule,
   ],
 })
 export class AppModule {}

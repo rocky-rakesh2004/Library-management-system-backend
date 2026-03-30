@@ -10,42 +10,40 @@ import { JwtService } from '@nestjs/jwt';
 import { RegisterDto } from './dto/register.dto';
 
 import * as bcrypt from 'bcrypt';
+import { BlacklistService } from '../blacklist/blacklist.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
     private jwtService: JwtService,
+    private blacklistService: BlacklistService,
   ) {}
 
   async register(dto: RegisterDto) {
-  const userExists = await this.usersService.findByEmail(
-    dto.email,
-  );
+    const userExists = await this.usersService.findByEmail(dto.email);
 
-  if (userExists) {
-    throw new BadRequestException(
-      'User already exists',
+    if (userExists) {
+      throw new BadRequestException('User already exists');
+    }
+
+    const user = await this.usersService.createUser(
+      dto.name,
+      dto.email,
+      dto.password,
     );
+
+    return {
+      message: 'User registered successfully',
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        createdAt: user.createdAt,
+      },
+    };
   }
-
-  const user = await this.usersService.createUser(
-    dto.name,
-    dto.email,
-    dto.password,
-  );
-
-  return {
-    message: 'User registered successfully',
-    user: {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
-      createdAt: user.createdAt,
-    },
-  };
-}
 
   async login(loginDto: LoginDto) {
     const user = await this.usersService.findByEmail(loginDto.email);
@@ -79,7 +77,17 @@ export class AuthService {
     };
   }
 
-  logout() {
+  async logout(req: Request) {
+    const authHeader = req.headers['authorization'];
+
+    if (!authHeader) {
+      throw new UnauthorizedException('Token missing');
+    }
+
+    const token = authHeader.split(' ')[1];
+
+    await this.blacklistService.addToken(token);
+
     return {
       message: 'Logged out successfully',
     };

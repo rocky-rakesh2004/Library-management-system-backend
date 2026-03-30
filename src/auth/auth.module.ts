@@ -13,6 +13,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { JwtSignOptions } from '@nestjs/jwt';
+import { BlacklistModule } from 'src/blacklist/blacklist.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { JwtSignOptions } from '@nestjs/jwt';
       }),
       inject: [ConfigService],
     }),
+    BlacklistModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],

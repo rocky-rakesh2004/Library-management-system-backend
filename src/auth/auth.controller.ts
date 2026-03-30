@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-  UseGuards,
-  Request,
-} from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, Request } from '@nestjs/common';
 
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
@@ -12,18 +6,12 @@ import { RegisterDto } from './dto/register.dto';
 
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 
-import {
-  ApiTags,
-  ApiBearerAuth,
-  ApiOperation,
-} from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   // REGISTER USER
   @Post('register')
@@ -40,12 +28,12 @@ export class AuthController {
   }
 
   // LOGOUT
+  @ApiOperation({ summary: 'Logout user' })
+  @Post('logout')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @Post('logout')
-  @ApiOperation({ summary: 'Logout user' })
-  logout() {
-    return this.authService.logout();
+  logout(@Request() req) {
+    return this.authService.logout(req);
   }
 
   // LOGOUT ALL DEVICES
@@ -56,8 +44,6 @@ export class AuthController {
     summary: 'Logout from all devices',
   })
   logoutAll(@Request() req) {
-    return this.authService.logoutAll(
-      req.user.id,
-    );
+    return this.authService.logoutAll(req.user.id);
   }
 }
